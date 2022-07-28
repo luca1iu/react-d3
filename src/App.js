@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import * as d3 from "d3";
 
-function App() {
+export default function App() {
+  const changeStroke = () => {
+    d3.select(".target").style("stroke-width", 5);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <button onClick={changeStroke}>change stroke</button>
+        <svg>
+          <circle
+              class="target"
+              style={{ fill: "green" }}
+              stroke="black"
+              cx={50}
+              cy={50}
+              r={40}
+          ></circle>
+        </svg>
+      </div>
   );
 }
-
-export default App;
